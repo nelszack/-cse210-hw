@@ -53,11 +53,12 @@ class Program
         else if (grade<60){
             letter="F";
         }
+        Console.Write($"Your grade is a {letter}");
         if (grade>=70){
-            Console.Write($"your grade is a {letter} you passed!");
+            Console.Write($" you passed!");
         }
         else if (grade<70){
-            Console.Write($"your grade is a {letter} you did not pass try again");
+            Console.Write($" you did not pass try again");
         }
     }
 }

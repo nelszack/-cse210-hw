@@ -1,5 +1,5 @@
 using System;
-// Zack Nelson 4/25/24 ,
+// Zack Nelson 4/25/24 ,have user enter number then add that number in list until user enters 0 then find the largest,smallest positive,avg, and sum of list
 class Program
 {
     static void Main(string[] args)

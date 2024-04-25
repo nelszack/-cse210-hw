@@ -6,58 +6,58 @@ class Program
     static void Main(string[] args)
     {
         Console.Write("What is your grade percentage ");
-        string percentage=Console.ReadLine();
-        float grade=float.Parse(percentage);
-        string letter= "";
-        if (grade>=90){
-            if (grade>90 && grade<94){
-                letter="A-";
+        string percentagezn=Console.ReadLine();
+        float gradezn=float.Parse(percentagezn);
+        string letterzn= "";
+        if (gradezn>=90){
+            if (gradezn>90 && gradezn<94){
+                letterzn="A-";
             }
             else{
-                letter="A";
+                letterzn="A";
             }
         }
-        else if (grade>=80){
-            if (grade>80 && grade<84){
-                letter="B-";
+        else if (gradezn>=80){
+            if (gradezn>80 && gradezn<84){
+                letterzn="B-";
             }
-            else if (grade>87 && grade<90){
-                letter="B+";
+            else if (gradezn>87 && gradezn<90){
+                letterzn="B+";
             }
             else{
-                letter="B";
+                letterzn="B";
             }
         }
-        else if (grade>=70){
-           if (grade>70 && grade<74){
-                letter="C-";
+        else if (gradezn>=70){
+           if (gradezn>70 && gradezn<74){
+                letterzn="C-";
             }
-            else if (grade>77 && grade<80){
-                letter="C+";
+            else if (gradezn>77 && gradezn<80){
+                letterzn="C+";
             }
             else{
-                letter="C";
+                letterzn="C";
             }
         }
-        else if (grade>=60){
-            if (grade>60 && grade<64){
-                letter="D-";
+        else if (gradezn>=60){
+            if (gradezn>60 && gradezn<64){
+                letterzn="D-";
             }
-            else if (grade>67 && grade<70){
-                letter="D+";
+            else if (gradezn>67 && gradezn<70){
+                letterzn="D+";
             }
             else{
-                letter="D";
+                letterzn="D";
             }
         }
-        else if (grade<60){
-            letter="F";
+        else if (gradezn<60){
+            letterzn="F";
         }
-        Console.Write($"Your grade is a {letter}");
-        if (grade>=70){
+        Console.Write($"Your grade is a {letterzn}");
+        if (gradezn>=70){
             Console.Write($" you passed!");
         }
-        else if (grade<70){
+        else if (gradezn<70){
             Console.Write($" you did not pass try again");
         }
     }

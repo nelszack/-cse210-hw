@@ -4,29 +4,29 @@ class Program
 {
     static void Main(string[] args)
     {   
-        string newGame="yes";
+        string newGamezn="yes";
         do{
-        Random randomGenerator = new Random();
-        int magicNumber = randomGenerator.Next(1, 100);
-        Console.WriteLine($"{magicNumber}");
-        int number=-9;
-        int count=0;
+        Random randomGeneratorzn = new Random();
+        int magicNumberzn = randomGeneratorzn.Next(1, 100);
+        Console.WriteLine($"{magicNumberzn}");
+        int numberzn=-9;
+        int countzn=0;
             do {
             Console.Write("what is your guess? ");
-            string guess=Console.ReadLine();
-            number=int.Parse(guess);
-            if (number>magicNumber){
+            string guesszn=Console.ReadLine();
+            numberzn=int.Parse(guesszn);
+            if (numberzn>magicNumberzn){
                 Console.WriteLine("Lower");
             }
-            else if (number<magicNumber){
+            else if (numberzn<magicNumberzn){
                 Console.WriteLine("Higher");
             }
-            count+=1;
-        }while (number!=magicNumber);
-        Console.WriteLine($"correct number of trys {count}");
+            countzn+=1;
+        }while (numberzn!=magicNumberzn);
+        Console.WriteLine($"correct number of trys {countzn}");
         Console.Write("do you want to play again? ");
-        newGame=Console.ReadLine();
-        }while(newGame=="yes");
+        newGamezn=Console.ReadLine();
+        }while(newGamezn=="yes");
 
     }
 }

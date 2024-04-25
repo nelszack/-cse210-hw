@@ -31,8 +31,8 @@ class Program
         DisplayWelcome();
         string namezn=PromptUserName();
         int favNumbzn=PromptUserNumber();
-        int numbSqaredzn=SquareNumber(favnumbzn);
-        DisplayResult(namezn,numbsqaredzn);
+        int numbSqaredzn=SquareNumber(favNumbzn);
+        DisplayResult(namezn,numbSqaredzn);
         
 
 

@@ -1,5 +1,5 @@
 using System;
-
+// Zack Nelson 4/25/24 ,generate random number then have the user guess until corect
 class Program
 {
     static void Main(string[] args)
@@ -8,7 +8,6 @@ class Program
         do{
         Random randomGeneratorzn = new Random();
         int magicNumberzn = randomGeneratorzn.Next(1, 100);
-        Console.WriteLine($"{magicNumberzn}");
         int numberzn=-9;
         int countzn=0;
             do {

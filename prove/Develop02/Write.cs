@@ -11,24 +11,25 @@ public class Write{
     }
 
     public string GetPrompt(){
-        List<string> Prompt= new List<string>();
-        Prompt.Add("Who was the most interesting person I interacted with today?");
-        Prompt.Add("What was the best part of my day?");
-        Prompt.Add("How did I see the hand of the Lord in my life today?");
-        Prompt.Add("What was the strongest emotion I felt today?");
-        Prompt.Add("If I had one thing I could do over today, what would it be?");
+        List<string> Promptzn= new List<string>();
+        Promptzn.Add("Who was the most interesting person I interacted with today?");
+        Promptzn.Add("What was the best part of my day?");
+        Promptzn.Add("How did I see the hand of the Lord in my life today?");
+        Promptzn.Add("What was the strongest emotion I felt today?");
+        Promptzn.Add("If I had one thing I could do over today,what would it be?");
+        Promptzn.Add("What did you do today?");
 
         Random Random= new Random();
         int Number=Random.Next(0,5);
-        _prompt=Prompt[Number];
-        return Prompt[Number];
+        _prompt=Promptzn[Number];
+        return Promptzn[Number];
     }
     public void GetResponce(string responce){
         _responce=responce;
     }
     public List<string> StoreEntry(){
 
-        _entries.Add($"{_date}|{_prompt}|{_responce}");
+        _entries.Add($"\"{_date}\",\"{_prompt}\",\"{_responce}\"");
 
         return _entries;
        
@@ -37,9 +38,16 @@ public class Write{
 
          foreach (string i in _entries)
         {
-            string[] j=i.Split("|");
+            string[] j=i.Split("\",\"");
+            if (j[2].EndsWith("\"")){
+                j[2]=j[2].Trim('"');
+            }
+            if (j[0].StartsWith("\"")){
+                j[0]=j[0].Trim('"');
+            }
             // Console.WriteLine(i);
-            Console.WriteLine($"Date: {j[0]} Prompt:{j[1]}\n{j[2]}");
+            // Console.WriteLine($"Date: {i[0]} Prompt:{i[1]}\n{i[2]}");
+            Console.WriteLine($"Date: {j[0]} - Prompt: {j[1]}\n{j[2]}\n");
             
         }
     }

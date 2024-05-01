@@ -1,6 +1,7 @@
 using System;
 using System.IO;
-
+// Zack Nelson,5/1/24, journal entery keeping system that stores the date prompt and responce to a file
+// I made it so that it can be saved to a .txt ot a .csv file and have it load and display correctly
 class Program
 {
     static string Menu(){
@@ -16,37 +17,37 @@ class Program
     }
     static void Main(string[] args)
     {   int Choisezn=0;
-        Write WritePrompt=new Write();
+        Write WritePromptzn=new Write();
         do
         {
             string Znchoise=Menu();
             Choisezn=int.Parse(Znchoise);
             if (Choisezn>=6||Choisezn<=0){
-                Console.WriteLine("not a valid option try again");
+                Console.WriteLine("Not a valid option try again");
             }
             switch(Choisezn)
             {
                 case 1:
-                    Console.WriteLine(WritePrompt.GetPrompt());
+                    Console.WriteLine(WritePromptzn.GetPrompt());
                     string promptResponce=Console.ReadLine();
-                    WritePrompt.GetResponce(promptResponce);
-                    WritePrompt.StoreEntry();
+                    WritePromptzn.GetResponce(promptResponce);
+                    WritePromptzn.StoreEntry();
                     break;
                 case 2:
-                    WritePrompt.Display();
+                    WritePromptzn.Display();
                     break;
                 case 3:
-                    Load LoadFile=new Load();
-                    LoadFile.LoadEnteries(WritePrompt._entries);
+                    Load LoadFilezn=new Load();
+                    LoadFilezn.LoadEnteries(WritePromptzn._entries);
                     break;
                 case 4:
-                    Load SaveEnteries= new Load();
-                    SaveEnteries.SaveEnteries(WritePrompt._entries);
+                    Load SaveEnterieszn= new Load();
+                    SaveEnterieszn.SaveEnteries(WritePromptzn._entries);
                     break;
                 case 5:
-                    Console.Write("are you sure, any unsaved entries will be lost ");
-                    string Responce=Console.ReadLine();
-                    if (Responce.ToLower()=="yes"||Responce.ToLower()=="y"){
+                    Console.Write("Are you sure, any unsaved entries will be lost ");
+                    string Responcezn=Console.ReadLine();
+                    if (Responcezn.ToLower()=="yes"||Responcezn.ToLower()=="y"){
                         Choisezn=5;
                         }
                     else{

@@ -16,11 +16,12 @@ public class Write{
         Promptzn.Add("What was the best part of my day?");
         Promptzn.Add("How did I see the hand of the Lord in my life today?");
         Promptzn.Add("What was the strongest emotion I felt today?");
-        Promptzn.Add("If I had one thing I could do over today,what would it be?");
+        Promptzn.Add("If I had one thing I could do over today, what would it be?");
         Promptzn.Add("What did you do today?");
+        Promptzn.Add("What is something that you wished you have done better?");
 
         Random Random= new Random();
-        int Number=Random.Next(0,5);
+        int Number=Random.Next(Promptzn.Count()+1);
         _prompt=Promptzn[Number];
         return Promptzn[Number];
     }

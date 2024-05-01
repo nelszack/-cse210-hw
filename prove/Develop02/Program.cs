@@ -11,7 +11,7 @@ class Program
         Console.WriteLine("3. Load");
         Console.WriteLine("4. Save");
         Console.WriteLine("5. Quit");
-        Console.Write("What do you chose? ");
+        Console.Write("What do you chose?: ");
         string AnswerZn=Console.ReadLine();
         return AnswerZn;
     }
@@ -45,9 +45,9 @@ class Program
                     SaveEnterieszn.SaveEnteries(WritePromptzn._entries);
                     break;
                 case 5:
-                    Console.Write("Are you sure, any unsaved entries will be lost ");
+                    Console.Write("Are you sure, any unsaved entries will be lost: ");
                     string Responcezn=Console.ReadLine();
-                    if (Responcezn.ToLower()=="yes"||Responcezn.ToLower()=="y"){
+                    if (Responcezn.ToLower().Equals("yes")||Responcezn.ToLower().Equals("y")){
                         Choisezn=5;
                         }
                     else{

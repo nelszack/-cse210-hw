@@ -11,23 +11,24 @@ public class Write{
     }
 
     public string GetPrompt(){
-        List<string> prompt= new List<string>();
-        prompt.Add("Who was the most interesting person I interacted with today?");
-        prompt.Add("What was the best part of my day?");
-        prompt.Add("How did I see the hand of the Lord in my life today?");
-        prompt.Add("What was the strongest emotion I felt today?");
-        prompt.Add("If I had one thing I could do over today, what would it be?");
+        List<string> Prompt= new List<string>();
+        Prompt.Add("Who was the most interesting person I interacted with today?");
+        Prompt.Add("What was the best part of my day?");
+        Prompt.Add("How did I see the hand of the Lord in my life today?");
+        Prompt.Add("What was the strongest emotion I felt today?");
+        Prompt.Add("If I had one thing I could do over today, what would it be?");
 
-        Random random= new Random();
-        int number=random.Next(0,5);
-        _prompt=prompt[number];
-        return prompt[number];
+        Random Random= new Random();
+        int Number=Random.Next(0,5);
+        _prompt=Prompt[Number];
+        return Prompt[Number];
     }
     public void GetResponce(string responce){
         _responce=responce;
     }
     public List<string> StoreEntry(){
-        _entries.Add($"date: {_date} prompt: {_prompt}\n{_responce}\n ");
+
+        _entries.Add($"{_date}|{_prompt}|{_responce}");
 
         return _entries;
        
@@ -36,7 +37,9 @@ public class Write{
 
          foreach (string i in _entries)
         {
-            Console.WriteLine(i);
+            string[] j=i.Split("|");
+            // Console.WriteLine(i);
+            Console.WriteLine($"Date: {j[0]} Prompt:{j[1]}\n{j[2]}");
             
         }
     }

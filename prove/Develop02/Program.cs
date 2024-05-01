@@ -4,7 +4,6 @@ using System.IO;
 class Program
 {
     static string Menu(){
-
         Console.WriteLine("Select one of the options");
         Console.WriteLine("1. Write");
         Console.WriteLine("2. Display");
@@ -12,48 +11,50 @@ class Program
         Console.WriteLine("4. Save");
         Console.WriteLine("5. Quit");
         Console.Write("What do you chose? ");
-        string answerzn=Console.ReadLine();
-        return answerzn;
+        string AnswerZn=Console.ReadLine();
+        return AnswerZn;
     }
     static void Main(string[] args)
-    {   int choisezn=0;
-        Write write=new Write();
+    {   int Choisezn=0;
+        Write WritePrompt=new Write();
         do
         {
-            string znchoise=Menu();
-            choisezn=int.Parse(znchoise);
-            if (choisezn>=6||choisezn<=0){
+            string Znchoise=Menu();
+            Choisezn=int.Parse(Znchoise);
+            if (Choisezn>=6||Choisezn<=0){
                 Console.WriteLine("not a valid option try again");
             }
-            switch(choisezn)
+            switch(Choisezn)
             {
                 case 1:
-                    Console.WriteLine(write.GetPrompt());
+                    Console.WriteLine(WritePrompt.GetPrompt());
                     string promptResponce=Console.ReadLine();
-                    write.GetResponce(promptResponce);
-                    write.StoreEntry();
+                    WritePrompt.GetResponce(promptResponce);
+                    WritePrompt.StoreEntry();
                     break;
                 case 2:
-                    write.Display();
+                    WritePrompt.Display();
                     break;
                 case 3:
-                    Console.WriteLine("file loaded");
+                    Load LoadFile=new Load();
+                    LoadFile.LoadEnteries(WritePrompt._entries);
                     break;
                 case 4:
-                    Console.WriteLine("file saved");
+                    Load SaveEnteries= new Load();
+                    SaveEnteries.SaveEnteries(WritePrompt._entries);
                     break;
                 case 5:
                     Console.Write("are you sure, any unsaved entries will be lost ");
-                    string responce=Console.ReadLine();
-                    if (responce.ToLower()=="yes"||responce.ToLower()=="y"){
-                        choisezn=5;
+                    string Responce=Console.ReadLine();
+                    if (Responce.ToLower()=="yes"||Responce.ToLower()=="y"){
+                        Choisezn=5;
                         }
                     else{
-                        choisezn=0;
+                        Choisezn=0;
                         }
                     break;
             } 
-        } while (choisezn!=5);
+        } while (Choisezn!=5);
 
     }
 }

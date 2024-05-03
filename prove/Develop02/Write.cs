@@ -21,7 +21,7 @@ public class Write{
         Promptzn.Add("What is something that you wished you have done better?");
 
         Random Random= new Random();
-        int Number=Random.Next(Promptzn.Count()+1);
+        int Number=Random.Next(Promptzn.Count());
         _prompt=Promptzn[Number];
         return Promptzn[Number];
     }

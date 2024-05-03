@@ -19,12 +19,10 @@ public class Fraction{
        return  _denom= denom;
     }
     public string GetFractionString(){
-        string text=($"{_num}/{_denom}");
-        return text;
+        return  $"{_num}/{_denom}";
     } 
     public double GetDecimalString(){
-        double dec=(double)_num/(double)_denom;
-        return dec;
+        return (double)_num/(double)_denom;
     } 
 
 

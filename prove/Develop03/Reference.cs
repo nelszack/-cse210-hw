@@ -13,8 +13,8 @@ public class Reference{
         return _referenceKey;
     }
     public string SetReferenceKey(Dictionary<string,string> ScriptureDict){
-        Random randnumb= new Random();
-        int Number=randnumb.Next(ScriptureDict.Count());
+        Random RandNumb= new Random();
+        int Number=RandNumb.Next(ScriptureDict.Count());
         string key=ScriptureDict.Keys.ElementAt(Number);
         return _referenceKey=key;
     }

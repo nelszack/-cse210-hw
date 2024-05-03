@@ -1,28 +1,28 @@
 using System;
-
+// Zack Nelson,5/2/24,creates a dictonary of scripures and it slowly removes words and relpaces it with '_', for the streach chalange i made it so that there are multiple scriptures to choose from and made it so that it removes words that havent been chosen before
 class Program
 {
     
     static void Main(string[] args)
     {
-        Scripture scripture2=new Scripture();
-        Dictionary<string,string>scripture=scripture2.CreateScriptureDict();
-        Reference reference=new Reference();
-        reference.SetReferenceKey(scripture);
+        Scripture Scripture2zn=new Scripture();
+        Dictionary<string,string>Scripturezn=Scripture2zn.CreateScriptureDict();
+        Reference Referencezn=new Reference();
+        Referencezn.SetReferenceKey(Scripturezn);
         string ToContinue="";
-        Word word= new Word();
-        word.SetScripture(scripture[reference.GetReferenceKey()]);
+        Word Wordzn= new Word();
+        Wordzn.SetScripture(Scripturezn[Referencezn.GetReferenceKey()]);
         do{
-            string[] ScriptureList=word.SetScriptureList(word.GetScripture());
+            string[] ScriptureList=Wordzn.SetScriptureList(Wordzn.GetScripture());
             Console.Clear();
-            string fullvalue=word.GetScripture();
-            Console.WriteLine($"{reference.GetReferenceKey()} {fullvalue}\nPress enter to continue or type 'quit' to finish:");
+            string FullValue=Wordzn.GetScripture();
+            Console.WriteLine($"{Referencezn.GetReferenceKey()} {FullValue}\nPress enter to continue or type 'quit' to finish:");
             ToContinue=Console.ReadLine();
-            fullvalue=word.RemoveWords(ScriptureList);
-            if (word.GetScripture().Equals(fullvalue)){
+            FullValue=Wordzn.RemoveWords(ScriptureList);
+            if (Wordzn.GetScripture().Equals(FullValue)){
                 break;
             }
-            word.SetScripture(fullvalue);
+            Wordzn.SetScripture(FullValue);
         }while(ToContinue!="quit");
 
     }

@@ -23,18 +23,18 @@ public class Word{
     }
 
     public string RemoveWords(string[] ScriptureList){
-        int number_of_changes=0;
-        int posible_cnahges=ScriptureList.Count(x=>!x.StartsWith('_'));
-        if (posible_cnahges!=0){
-            while (number_of_changes<4 && posible_cnahges>0)
+        int NumberOfChanges=0;
+        int PosibleChanges=ScriptureList.Count(x=>!x.StartsWith('_'));
+        if (PosibleChanges!=0){
+            while (NumberOfChanges<4 && PosibleChanges>0)
             {
-                Random index=new Random();
-                int randindex=index.Next(ScriptureList.Count());
-                if (!ScriptureList[randindex].StartsWith('_')){
-                    int NumbLetters=ScriptureList[randindex].Count();
+                Random Index=new Random();
+                int RandIndex=Index.Next(ScriptureList.Count());
+                if (!ScriptureList[RandIndex].StartsWith('_')){
+                    int NumbLetters=ScriptureList[RandIndex].Count();
                     string dashes="";
                     for (int i=0;i<NumbLetters;i++){
-                        switch(ScriptureList[randindex][i]){
+                        switch(ScriptureList[RandIndex][i]){
                             case ',':
                                 dashes+=",";
                                 break;
@@ -49,18 +49,18 @@ public class Word{
                                 break;
                         }
                     }
-                    ScriptureList[randindex]=dashes;
-                    number_of_changes++;
-                    posible_cnahges--;
+                    ScriptureList[RandIndex]=dashes;
+                    NumberOfChanges++;
+                    PosibleChanges--;
                 }
             }
         }
-         string fullvalue="";
+         string FullValue="";
 
         foreach (string i in ScriptureList)
         {
-            fullvalue+=i+" ";
+            FullValue+=i+" ";
         }
-        return fullvalue.Trim();
+        return FullValue.Trim();
     }
 }

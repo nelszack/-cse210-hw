@@ -1,7 +1,7 @@
 using System;
 
 public class Load{
-    
+    private string[] _loadedEnteries;
     public Load(){
 
     }
@@ -9,8 +9,8 @@ public class Load{
     public void LoadEnteries(List<string> Enteries){
         Console.Write("where do you want to load from ");
         string FileName=Console.ReadLine();
-        string[] Lines=System.IO.File.ReadAllLines(FileName);
-        foreach (string Line in Lines)
+        _loadedEnteries=System.IO.File.ReadAllLines(FileName);
+        foreach (string Line in _loadedEnteries)
         {
             Enteries.Add(Line);
         }

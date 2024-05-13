@@ -7,12 +7,15 @@ class Program
         Base b1=new Base();
         string selection;
         do{
-        selection=b1.DisplayMenu();
+            selection=b1.DisplayMenu();
         switch (selection){
             case "1":
-                Breathing b3=new Breathing();
-                b3.DisplayMessage();
-                b3.Timer(5);
+                Breathing b2= new Breathing();
+                int time=b2.displayOPening();
+                b2.displayActivity(5);
+                // string[] List=b2.GetTimerList();
+                // b2.StartTimer(time,List);
+                Console.WriteLine("1");
                 break;
             case "2":
                 Console.WriteLine("2");

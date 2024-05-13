@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        Random random= new Random();
-        int number=random.Next(0,5);
-        Console.WriteLine(number);
+       double numb=.01;
+       double numb2=.02;
+       Console.WriteLine(numb+numb2);
     }
 }

@@ -1,38 +1,43 @@
 using System;
 
 public class Base{
-    private string[] _timerList=["|","/","-","\\"];
-    // private
-    // private
-    // private
-
+    protected string[]_timerList=["|","/","-","\\"];
+    private int _seconds;
+    
     public Base(){
 
     }
-
-    public string DisplayMenu(){
-
-        Console.WriteLine("Menu Options:\n1. Start breathing activity\n2. Start reflection activity\n3. Start listing activity\n4. Quit");
-        Console.Write("Select one of the options from the menu ");
-        string Choice=Console.ReadLine();
-        return Choice;
+    public Base(int seconds){
+        _seconds=seconds;
+        
     }
 
-    public void Timer(int Seconds){
-        DateTime StartTime=DateTime.Now;
-        DateTime EndTime=StartTime.AddSeconds(Seconds);
+    public string DisplayMenu(){
+        Console.Write("1. Start Breathing Activity\n2. Start reflection activity\n3. Start listing activity\n4. Quit\nwhat do you chose:");
+        string choise=Console.ReadLine();
+        return choise;
+    }
+    public string[] GetTimerList(){
+        string[] timeList= _timerList;
+        return timeList;
+    }
+
+    public void StartTimer(int seconds,string[] timerList){
+        DateTime starttime= DateTime.Now;
+        DateTime endtime= starttime.AddSeconds(seconds);
         int i=0;
-        while(DateTime.Now<EndTime){
-            Console.Write(_timerList[i]);
+        while(DateTime.Now<endtime){
+            string s=timerList[i];
+            Console.Write(s);
             Thread.Sleep(1000);
             Console.Write("\b \b");
             i++;
-            if (i>=_timerList.Count()){
-                i%=_timerList.Count();
+            if (i>=timerList.Count()){
+            i=0;
             }
+
         }
-
-
     }
 
+    
 }

@@ -17,11 +17,15 @@ class Program
         job2zn._startYearzn=2022;
         job2zn._endYearzn=2023;
         job2zn.Display();
+        
+        Job job3zn=new Job("BYUI","Assistant Manager",2023,2025);
+        job3zn.Display();
 
         Resume myResumezn=new Resume();
         myResumezn._personNamezn="John Smith";
         myResumezn._jobszn.Add(job1zn);
         myResumezn._jobszn.Add(job2zn);
+        myResumezn._jobszn.Add(job3zn);
         myResumezn.Display();
         
         

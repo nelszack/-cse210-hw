@@ -18,3 +18,7 @@ public class Scripture{
 
 
 }
+
+
+
+["For", "God", "so", "loved","..."]

@@ -1,7 +1,7 @@
 using System;
 using System.IO;
 // Zack Nelson,5/1/24, journal entery keeping system that stores the date prompt and responce to a file
-// I made it so that it can be saved to a .txt ot a .csv file and have it load and display correctly
+// I made it so that it can be saved to a .txt or a .csv file and have it load and display correctly
 class Program
 {
     static string Menu(){

@@ -9,6 +9,12 @@ public class Job{
    public Job(){
 
    }
+   public Job(string company, string jobtitle,int startyear,int endyear){
+      _companyzn=company;
+      _jobTitlezn=jobtitle;
+      _startYearzn=startyear;
+      _endYearzn=endyear;
+   }
    public void Display(){
     Console.WriteLine($"{_jobTitlezn} ({_companyzn}) {_startYearzn}-{_endYearzn}");
    } 

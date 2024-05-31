@@ -1,5 +1,5 @@
 using System;
-// Zack Nelson,5/2/24,creates a dictonary of scripures and it slowly removes words and relpaces it with '_', for the streach chalange i made it so that there are multiple scriptures to choose from and made it so that it removes words that havent been chosen before
+// Zack Nelson,5/2/24,creates a dictonary of scripures and it slowly removes words and relpaces it with '_', for the streach chalange I made it so that there are multiple scriptures that it  chooses at random from and made it so that it removes words that haven't been chosen before
 class Program
 {
     

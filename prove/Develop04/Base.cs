@@ -2,10 +2,14 @@ using System;
 
 public class Base{
     protected string[]_timerList=["|","/","-","\\"];
-    private int _seconds;
+    protected int _seconds;
+    protected string _message;
     
     public Base(){
 
+    }
+    public Base(string message){
+        _message=message;
     }
     public Base(int seconds){
         _seconds=seconds;
@@ -22,17 +26,25 @@ public class Base{
         return timeList;
     }
 
-    public void StartTimer(int seconds,string[] timerList){
+    public void displayOPening(){
+        Console.WriteLine(_message);
+        Console.Write("how long do you want the activity to be ");
+        string activityTimestr=Console.ReadLine();
+        int activityTime= int.Parse(activityTimestr);
+        _seconds=activityTime;
+    }
+
+    public void StartTimer(int time){
         DateTime starttime= DateTime.Now;
-        DateTime endtime= starttime.AddSeconds(seconds);
+        DateTime endtime= starttime.AddSeconds(time);
         int i=0;
         while(DateTime.Now<endtime){
-            string s=timerList[i];
+            string s=_timerList[i];
             Console.Write(s);
             Thread.Sleep(1000);
             Console.Write("\b \b");
             i++;
-            if (i>=timerList.Count()){
+            if (i>=_timerList.Count()){
             i=0;
             }
 

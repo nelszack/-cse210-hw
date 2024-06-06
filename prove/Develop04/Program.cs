@@ -10,24 +10,26 @@ class Program
             selection=b1.DisplayMenu();
         switch (selection){
             case "1":
-                Breathing b2= new Breathing();
-                int time=b2.displayOPening();
-                b2.displayActivity(5);
-                // string[] List=b2.GetTimerList();
-                // b2.StartTimer(time,List);
-                Console.WriteLine("1");
+                Console.Clear();
+                Breathing b2= new Breathing("Welcome to the Breathing activity.\nThis activity will help you relax by walking you through breathing in and out slowly. clear your mind and focus on your breathing.");
+                b2.displayOPening();
+                b2.displayActivity();
                 break;
             case "2":
-                Console.WriteLine("2");
+                Console.Clear();
+                Reflection b3= new Reflection("this is something cool");
+                b3.displayOPening();
+                b3.displayActivity();
                 break;
             case "3":
+                Console.Clear();
                 Console.WriteLine("3");
                 break;
             case "4":
+                Console.Clear();
                 Console.WriteLine("4");
                 break;
         }
-        Console.Clear();
         } while(selection!="4");
     }
 }

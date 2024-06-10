@@ -21,6 +21,7 @@ public class Listing:Base{
         _responce.Add(Console.ReadLine());
         } 
         
+        
         Console.WriteLine($"you listed {_responce.Count()} times");
     }
 

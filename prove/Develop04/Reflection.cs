@@ -6,10 +6,10 @@ public class Reflection:Base{
 
 
     public Reflection(string message):base(message){
-        _message=message;
+       
     }
     
-    public void displayActivity(){
+    public void DisplayActivity(){
         Console.WriteLine("Get ready ");
         StartTimer(5);
         Random index= new Random();
@@ -26,7 +26,7 @@ public class Reflection:Base{
             Random index2= new Random();
             int RandIndex2=index2.Next(_reflection.Count());
             Console.Write($"{_reflection[RandIndex2]}");
-            StartTimer(5);
+            StartTimer(7);
             Console.WriteLine("");
 
         }

@@ -3,7 +3,7 @@ public class Listing:Base{
     private List<string> _prompt=["Who are people that you appreciate?","What are personal strengths of yours?","Who are people that you have helped this week?","When have you felt the Holy Ghost this month?","Who are some of your personal heroes?"];
     private List<string> _responce=[];
 
-    public Listing(string message): base(message){
+    public Listing(string message,string activity="listing"):base(message,activity){
         
     }
 
@@ -20,8 +20,6 @@ public class Listing:Base{
         Console.Write('>');
         _responce.Add(Console.ReadLine());
         } 
-        
-        
         Console.WriteLine($"you listed {_responce.Count()} times");
     }
 

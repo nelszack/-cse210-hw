@@ -3,7 +3,7 @@ using System;
 public class Breathing:Base{
     
 
-    public Breathing(string message):base(message){
+    public Breathing(string message,string activity="breathing"):base(message,activity){
 
     }
     
@@ -24,7 +24,7 @@ public class Breathing:Base{
             i=0;
             }
         }
-        Console.WriteLine($"you completed another {_seconds} seconds of the breathing activity");
+        
 
     }
     

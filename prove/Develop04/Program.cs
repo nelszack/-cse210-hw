@@ -4,10 +4,12 @@ class Program
 {
     static void Main(string[] args)
     {
-        Base b1=new Base();
+        int breathing=0;
+        int reflection=0;
+        int listing=0;
         string selection;
         do{
-            selection=b1.DisplayMenu();
+            selection=Base.DisplayMenu();
         switch (selection){
             case "1":
                 Console.Clear();
@@ -16,27 +18,36 @@ class Program
                 Console.Clear();
                 b2.displayActivity();
                 b2.ClosingMessage();
+                breathing+=1;
                 break;
             case "2":
                 Console.Clear();
-                Reflection b3= new Reflection("Welcom to the Relection Activity.\nThis activity will help you refelcton times in your life when you have shown strength and resilience this will help you reconize the power you have and how you can use it in other aspects of your life");
+                Reflection b3= new Reflection("Welcome to the Relection Activity.\nThis activity will help you refelcton times in your life when you have shown strength and resilience this will help you reconize the power you have and how you can use it in other aspects of your life");
                 b3.DisplayOpening();
                 Console.Clear();
                 b3.DisplayActivity();
                 b3.ClosingMessage();
+                reflection+=1;
                 break;
             case "3":
                 Console.Clear();
-                Listing b4=new Listing("Welcom to the Listing activity.\nThis activity will help you refect on the good things in your life be having you list as many things as you can in a certain area");
+                Listing b4=new Listing("Welcome to the Listing activity.\nThis activity will help you refect on the good things in your life be having you list as many things as you can in a certain area");
                 b4.DisplayOpening();
                 Console.Clear();
                 b4.DisplayActivity();
                 b4.ClosingMessage();
+                listing+=1;
                 break;
             case "4":
+                Console.WriteLine($"breathing: {breathing}");
+                Console.WriteLine($"reflection: {reflection}");
+                Console.WriteLine($"listing: {listing}\n");
+                break;
+            case "5":
                 Console.Clear();
                 break;
         }
-        } while(selection!="4");
+        } while(selection!="5");
     }
 }
+

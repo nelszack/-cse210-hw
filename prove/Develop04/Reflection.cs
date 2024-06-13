@@ -5,7 +5,7 @@ public class Reflection:Base{
     private List<string> _reflection=["Why was this experience meaningful to you?","Have you ever done anything like this before?","How did you get started?", "How did you feel when it was complete?", "What made this time different than other times when you were not as successful?","What is your favorite thing about this experience?","What could you learn from this experience that applies to other situations?","What did you learn about yourself through this experience?","How can you keep this experience in mind in the future?"];
 
 
-    public Reflection(string message):base(message){
+    public Reflection(string message,string activity="reflection"):base(message,activity){
        
     }
     
@@ -17,8 +17,9 @@ public class Reflection:Base{
         Console.WriteLine($"consider the prompt:\n{_prompts[RandIndex]}");
         Console.WriteLine("if you have something in mind press enter");
         Console.ReadLine();
-        Console.Write($"now ponder on each of the folloing questions as they related to this experience\n you may begin in");
+        Console.Write($"now ponder on each of the folloing questions as they related to this experience\n");
         StartTimer(5);
+        Console.WriteLine("you may begin:");
         Console.WriteLine("");
         DateTime startTime=DateTime.Now;
         DateTime endtime=startTime.AddSeconds(_seconds);
@@ -30,6 +31,5 @@ public class Reflection:Base{
             Console.WriteLine("");
 
         }
-        Console.WriteLine($"you completed another {_seconds} seconds of the reflection activity");
     }
 }

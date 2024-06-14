@@ -3,12 +3,11 @@ class Program
 {
     static void Main(string[] args)
     {
-        int BreathingCount=0;
-        int ReflectionCount=0;
-        int ListingCount=0;
+        
         string Selection;
-        do{
-            Selection=Base.DisplayMenu();
+        Base B1=new Base();
+        do{ 
+            Selection=B1.DisplayMenu();
         switch (Selection){
             case "1":
                 Console.Clear();
@@ -16,10 +15,9 @@ class Program
                 B2.DisplayOpening();
                 Console.Clear();
                 B2.DisplayActivity();
+                B1.SetCount("breathing");
+                B2.SetCount("breathing",B1.GetCount("breathing"));
                 B2.ClosingMessage();
-                BreathingCount+=1;
-                Console.WriteLine($"You have compleated this activity {BreathingCount} times");
-                B2.StartTimer(8);
                 Console.Clear();
                 break;
             case "2":
@@ -28,10 +26,9 @@ class Program
                 B3.DisplayOpening();
                 Console.Clear();
                 B3.DisplayActivity();
+                B1.SetCount("reflection");
+                B3.SetCount("reflection",B1.GetCount("reflection"));
                 B3.ClosingMessage();
-                ReflectionCount+=1;
-                Console.WriteLine($"You have compleated this activity {ReflectionCount} times");
-                B3.StartTimer(8);
                 Console.Clear();
                 break;
             case "3":
@@ -40,16 +37,15 @@ class Program
                 B4.DisplayOpening();
                 Console.Clear();
                 B4.DisplayActivity();
+                B1.SetCount("listing");
+                B4.SetCount("listing",B1.GetCount("listing"));
                 B4.ClosingMessage();
-                ListingCount+=1;
-                Console.WriteLine($"You have compleated this activity {ListingCount} times");
-                B4.StartTimer(8);
                 Console.Clear();
                 break;
             case "4":
-                Console.WriteLine($"Breathing: {BreathingCount}");
-                Console.WriteLine($"Reflection: {ReflectionCount}");
-                Console.WriteLine($"Listing: {ListingCount}\n");
+                Console.WriteLine($"Breathing: {B1.GetCount("breathing")}");
+                Console.WriteLine($"Reflection: {B1.GetCount("reflection")}");
+                Console.WriteLine($"Listing: {B1.GetCount("listing")}\n");
                 break;
             case "5":
                 Console.Clear();

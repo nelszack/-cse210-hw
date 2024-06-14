@@ -3,11 +3,11 @@ using System;
 public class Breathing:Base{
     
 
-    public Breathing(string message,string activity="breathing"):base(message,activity){
+    public Breathing(string Message,string Activity="breathing"):base(Message,Activity){
 
     }
     
-    public void displayActivity(){
+    public void DisplayActivity(){
         Console.WriteLine("Get ready ");
         StartTimer(5);
         DateTime startTime=DateTime.Now;

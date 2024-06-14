@@ -11,30 +11,30 @@ public class Base{
     public Base(){
 
     }
-    public Base(string message,string activity){
-        _message=message;
-        _activity=activity;
+    public Base(string Message,string Activity){
+        _message=Message;
+        _activity=Activity;
     }
 
     public static string DisplayMenu(){
         Console.Write("1. Start Breathing Activity\n2. Start reflection activity\n3. Start listing activity\n4. Display the number of times compleated for each activity\n5. Quit\nwhat do you chose:");
-        string choise=Console.ReadLine();
-        return choise;
+        string Choise=Console.ReadLine();
+        return Choise;
     }
 
     public void DisplayOpening(){
         Console.WriteLine(_message);
         Console.Write("How long do you want the activity to be ");
-        string activityTimestr=Console.ReadLine();
-        int activityTime= int.Parse(activityTimestr);
+        string ActivityTimeStr=Console.ReadLine();
+        int activityTime= int.Parse(ActivityTimeStr);
         _seconds=activityTime;
     }
 
-    public void StartTimer(int time){
-        DateTime starttime= DateTime.Now;
-        DateTime endtime= starttime.AddSeconds(time);
+    public void StartTimer(int Time){
+        DateTime StartTime= DateTime.Now;
+        DateTime EndTime= StartTime.AddSeconds(Time);
         int i=0;
-        while(DateTime.Now<endtime){
+        while(DateTime.Now<EndTime){
             string s=_timerList[i];
             Console.Write(s);
             Thread.Sleep(1000);

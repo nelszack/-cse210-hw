@@ -21,7 +21,7 @@ public class Base{
     }
 
     public string DisplayMenu(){
-        Console.Write("1. Start Breathing Activity\n2. Start reflection activity\n3. Start listing activity\n4. Display the number of times compleated for each activity\n5. Quit\nwhat do you chose:");
+        Console.Write("1. Start Breathing Activity\n2. Start reflection activity\n3. Start listing activity\n4. Display the number of times compleated for each activity\n5. Quit\nwhat do you chose: ");
         string Choise=Console.ReadLine();
         return Choise;
     }

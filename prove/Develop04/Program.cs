@@ -19,6 +19,9 @@ class Program
                 b2.displayActivity();
                 b2.ClosingMessage();
                 breathing+=1;
+                Console.WriteLine($"You have compleated this activity {breathing} times");
+                b2.StartTimer(8);
+                Console.Clear();
                 break;
             case "2":
                 Console.Clear();
@@ -28,6 +31,9 @@ class Program
                 b3.DisplayActivity();
                 b3.ClosingMessage();
                 reflection+=1;
+                Console.WriteLine($"You have compleated this activity {reflection} times");
+                b3.StartTimer(8);
+                Console.Clear();
                 break;
             case "3":
                 Console.Clear();
@@ -37,11 +43,14 @@ class Program
                 b4.DisplayActivity();
                 b4.ClosingMessage();
                 listing+=1;
+                Console.WriteLine($"You have compleated this activity {listing} times");
+                b4.StartTimer(8);
+                Console.Clear();
                 break;
             case "4":
-                Console.WriteLine($"breathing: {breathing}");
-                Console.WriteLine($"reflection: {reflection}");
-                Console.WriteLine($"listing: {listing}\n");
+                Console.WriteLine($"Breathing: {breathing}");
+                Console.WriteLine($"Reflection: {reflection}");
+                Console.WriteLine($"Listing: {listing}\n");
                 break;
             case "5":
                 Console.Clear();

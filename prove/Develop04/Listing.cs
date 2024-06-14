@@ -11,16 +11,16 @@ public class Listing:Base{
         Random index= new Random();
         int RandIndex=index.Next(_prompt.Count());
         string prompt=_prompt[RandIndex];
-        Console.WriteLine($"list as many responces you can from the following promt\n{prompt}");
+        Console.WriteLine($"List as many responces you can from the following promt\n{prompt}");
         StartTimer(5);
-        Console.WriteLine("you may begin");
+        Console.WriteLine("You may begin");
         DateTime startTime=DateTime.Now;
         DateTime endtime=startTime.AddSeconds(_seconds);
         while(DateTime.Now<endtime){
         Console.Write('>');
         _responce.Add(Console.ReadLine());
         } 
-        Console.WriteLine($"you listed {_responce.Count()} times");
+        Console.WriteLine($"You listed {_responce.Count()} times");
     }
 
 }

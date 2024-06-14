@@ -48,8 +48,8 @@ public class Base{
     
     }
     public void ClosingMessage(){
-        Console.WriteLine("well done");
-        Console.WriteLine($"you completed another {_seconds} seconds of the {_activity} activity");
+        Console.WriteLine("\nWell done");
+        Console.WriteLine($"You completed another {_seconds} seconds of the {_activity} activity");
     }
     
 }

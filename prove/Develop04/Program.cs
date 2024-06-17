@@ -1,5 +1,5 @@
 using System;
-// Zack Nelson 6/14/20024 exceeded requirements by having the program keep track of how many times an activity is done and made it so that on the reflection activity the questions don't repeat untill all of them have been asked
+// Zack Nelson 6/14/20024 exceeded requirements by having the program keep track of how many times an activity is done and made it so that on the reflection activity the questions don't repeat until all of them have been asked
 class Program
 {
     static void Main(string[] args)

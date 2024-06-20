@@ -1,0 +1,4 @@
+0
+SimpleGoal,dfhalkfjlakfhl,fjdkhlsafhaklfh,180
+EternalGoal,asdfjaskljdfhkjlaf,asdfhjakfkalkfkjdalk,187
+CheaklistGoal,adsfkjadlfhdjafsk,aslkfjdashflakf,192,500,0,4

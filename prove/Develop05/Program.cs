@@ -2,31 +2,54 @@ using System;
 
 class Program
 {   
-    static string Menu(){
-    Console.Write("1. Create new goal\n2. List goals\n3. Save goals\n4. Load goals\n5. Record\n6. Quit\nSelect a choice: ");
-    string Choice=Console.ReadLine();
-    return Choice;
-    }
+    
 
     static void Main(string[] args)
     {
-        string Choise;
+          string Choise;
+          Base open=new();
         do
         {
-            
-            Choise= Menu();
-
+            Choise= open.Menu();
             switch (Choise)
             {   case "1":
-                    Console.WriteLine("new goal");
+                    
+                    do{
+                    Choise=open.CreateMenu();
+                    switch (Choise){
+                         case "1":
+                              CreateSimple creates=new();
+                              creates.CreateGoal();
+                              open.AddList(creates);
+                              break;
+                         case "2":
+                              CreateEternal createe=new();
+                              createe.CreateGoal();
+                              open.AddList(createe);
+                              break;
+                         case "3":
+                              CreateCheaklist createc=new();
+                              createc.CreateGoal();
+                              open.AddList(createc);
+                              break;
+                         default:
+                              Console.WriteLine("not a valid choice");
+                              break;
+                    }
+                    } while(!new [] {"1","2","3"}.Contains(Choise));
+                    
                     break;
                case "2":
-                    Console.WriteLine("list goal");
+                   open.ListGoals();
                     break;
                case "3":
+                    Save save=new();
+                    save.SaveGoals(open.GetList());
                     Console.WriteLine("save goal");
                     break;
                case "4":
+                    Save load =new();
+                    load.Load();
                     Console.WriteLine("load goal");
                     break;
                case "5":
@@ -36,6 +59,7 @@ class Program
                     Console.WriteLine("quit");
                     break;
             }
+          //   Console.Clear();
         } while (Choise!="6");
 
             

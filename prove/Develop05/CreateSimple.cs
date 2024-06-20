@@ -18,6 +18,7 @@ public class CreateSimple:Base{
         Console.Write("Description of goal: ");
         _goalDesctiption=Console.ReadLine();
         Console.Write("Points when compleated: ");
-        _pointValue=int.Parse(Console.ReadLine());    
+        _pointValue=int.Parse(Console.ReadLine()); 
+        _compleated=false;   
     }
 }

@@ -2,15 +2,18 @@ using System;
 
 public class Save:Base{
 
-    public Save(){}
-    public void SaveGoals(List<Base> goals){
+    public Save():base(){}
+    public void SaveGoals(List<Base> goals,int score){
         Console.Write("where do you want to save the goals ");
         string FileName=Console.ReadLine();
         using (System.IO.StreamWriter output=new StreamWriter(FileName))
         {
-            output.WriteLine(_score);
+            int i=0;
             foreach (Base goal in goals)
             {
+            if (i==0){
+            output.WriteLine(score);
+            i++;}
             string goalType=goal.GetGoalType();
             string goalName=goal.GetName();
             string goalDesctiption=goal.GetDescription();
@@ -19,9 +22,9 @@ public class Save:Base{
             int numberTimes=goal.GetNumber();
             int numberTimesCompleated=goal.GetNumberCompleated();
             int bonus=goal.GetBonus();
-            output.WriteLine($"{goalType},{goalName},{goalDesctiption},{pointValue},{bonus},{numberTimesCompleated},{numberTimes}"); 
+            output.WriteLine($"{goalType},{goalName},{goalDesctiption},{pointValue},{bonus},{numberTimes},{numberTimesCompleated}"); 
             } else if (goalType=="SimpleGoal")
-            {bool compleated=_compleated;
+            {bool compleated=goal.GetCompleated();
             output.WriteLine($"{goalType},{goalName},{goalDesctiption},{pointValue},{compleated}");
             }
             else{

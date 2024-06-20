@@ -44,16 +44,15 @@ class Program
                     break;
                case "3":
                     Save save=new();
-                    save.SaveGoals(open.GetList());
-                    Console.WriteLine("save goal");
+                    save.SaveGoals(open.GetList(),open.GetScore());
                     break;
                case "4":
                     Save load =new();
-                    load.Load();
-                    Console.WriteLine("load goal");
+                    string[] goals=load.Load();
+                    open.FromLoad(goals);
                     break;
                case "5":
-                    Console.WriteLine("record ");
+                    open.Record();
                     break;
                case "6":
                     Console.WriteLine("quit");

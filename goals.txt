@@ -1,4 +1,4 @@
 0
 SimpleGoal,simple,bad,100,False
-EternalGoal,eternal,good,100
+EternalGoal,eternal,good,100,0
 CheaklistGoal,cheaklist,ok,25,80,10,0

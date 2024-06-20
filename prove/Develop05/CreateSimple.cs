@@ -1,13 +1,13 @@
 using System;
 
 public class CreateSimple:Base{
-
+      protected bool _compleated;
     public CreateSimple(){
 
     }
    
-    public CreateSimple(string GoalType, string GoalName, string GoalDesctription, int PointValue,bool Compleated ):base(GoalType,GoalName,GoalDesctription,PointValue,Compleated){
-
+    public CreateSimple(string GoalType, string GoalName, string GoalDesctription, int PointValue,bool Compleated ):base(GoalType,GoalName,GoalDesctription,PointValue){
+        _compleated=Compleated;
     }
 
    
@@ -21,4 +21,6 @@ public class CreateSimple:Base{
         _pointValue=int.Parse(Console.ReadLine()); 
         _compleated=false;   
     }
+    public override bool GetCompleated(){return _compleated;}
+    public override void SetCompleated(bool value){_compleated=value;}
 }

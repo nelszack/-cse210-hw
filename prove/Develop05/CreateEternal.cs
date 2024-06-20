@@ -1,12 +1,12 @@
 using System;
 
 public class CreateEternal:Base{
-   
+   int _timesCompleated;
     public CreateEternal(){
 
    }
-    public CreateEternal(string GoalType, string GoalName, string GoalDesctription, int PointValue ):base(GoalType,GoalName,GoalDesctription,PointValue){
-
+    public CreateEternal(string GoalType, string GoalName, string GoalDesctription, int PointValue,int TimesCompleated ):base(GoalType,GoalName,GoalDesctription,PointValue){
+        _timesCompleated=TimesCompleated;
     }
 
     public override void CreateGoal(){
@@ -19,5 +19,6 @@ public class CreateEternal:Base{
         _pointValue=int.Parse(Console.ReadLine());
            
     }
-    
+    public override int GetNumberCompleated(){return _timesCompleated;}
+    public override void SetNumberCompleated(int numb){_timesCompleated+=numb;}
 }

@@ -5,26 +5,12 @@ using System.Diagnostics;
 public class Base{
 
     protected int _score=0; 
-    protected string _goalType;
-    protected string _goalName;
-    protected string _goalDesctiption;
+    protected string _goalType, _goalName,  _goalDesctiption;
     protected int _pointValue;
-    protected int _numberTimes;
-    protected int _numberTimesCompleated;
-    protected int _bonus;
-    protected bool _compleated;
-
     protected List<Base> _goals =new();
 
     public Base(){
         
-    }
-    public Base(string GoalType, string GoalName, string GoalDesctription, int PointValue, bool Compleated){
-        _goalType=GoalType;
-        _goalName=GoalName;
-        _goalDesctiption=GoalDesctription;
-        _pointValue=PointValue;
-        _compleated=Compleated;
     }
     public Base(string GoalType, string GoalName, string GoalDesctription, int PointValue){
         _goalType=GoalType;
@@ -32,50 +18,23 @@ public class Base{
         _goalDesctiption=GoalDesctription;
         _pointValue=PointValue;
     }
-    public Base(string GoalType, string GoalName, string GoalDesctription, int PointValue,int Bonus,int NumberTimes,int TimesCompleated ){
-        _goalType=GoalType;
-        _goalName=GoalName;
-        _goalDesctiption=GoalDesctription;
-        _pointValue=PointValue;
-        _numberTimes=NumberTimes;
-        _bonus=Bonus;
-        _numberTimesCompleated=TimesCompleated;
-    }
-    public string GetName(){
-        return _goalName;
-    }
-    public string GetDescription(){
-        return _goalDesctiption;
-    }
-    public string GetGoalType(){
-        return _goalType;
-    }
-    public int GetPoint(){
-        return _pointValue;
-    }
-    public int GetNumber(){
-        return _numberTimes;
-    }
-    public int GetNumberCompleated(){
-        return _numberTimesCompleated;
-    }
-    public int GetBonus(){
-        return _bonus;
-    }
-    public bool GetCompleated(){
-        return _compleated;
-    }
-    
-    public void AddList(Base some){
-        _goals.Add(some);
-    }
+
+    public string GetName(){return _goalName;}
+    public string GetDescription(){return _goalDesctiption;}
+    public string GetGoalType(){return _goalType;}
+    public int GetPoint(){return _pointValue;}
+    public virtual bool GetCompleated(){return true;}
+    public virtual int GetNumber(){return 1;}
+    public virtual int GetNumberCompleated(){return 1;}
+    public virtual void SetNumberCompleated(int numb){}
+    public virtual void SetCompleated(bool value){}
    
-   public List<Base> GetList(){
-    return _goals;
-   }
-   public int GetScore(){
-    return _score;
-   } 
+   public virtual int GetBonus(){return 1;}
+    
+    public void AddList(Base some){_goals.Add(some);}
+   
+   public List<Base> GetList(){return _goals;}
+   public int GetScore(){return _score;} 
 
     public string Menu(){
     Console.WriteLine($"Score: {_score}\n");    
@@ -90,9 +49,7 @@ public class Base{
         string choise=Console.ReadLine();
         return choise;
     }
-    public virtual void CreateGoal(){
-        Console.Write("d");
-    }
+    public virtual void CreateGoal(){}
     public void ListGoals(){
         int i=1;
         foreach (var item in _goals)
@@ -103,15 +60,17 @@ public class Base{
             string goalDesctiption=item._goalDesctiption;
             int pointValue=item._pointValue;
             if(goalType=="CheaklistGoal"){
-            int numberTimes=item._numberTimes;
-            int numberTimesCompleated=item._numberTimesCompleated;
-            int bonus=item._bonus;
+            int numberTimes=item.GetNumber();
+            int numberTimesCompleated=item.GetNumberCompleated();
+            int bonus=item.GetBonus();
             if (numberTimes==numberTimesCompleated){done ="[X]";}
             Console.WriteLine($"{i}. {done} {goalType}: {goalName} ({goalDesctiption}) {pointValue} --compleated {numberTimesCompleated}/{numberTimes})"); 
             } else if(goalType=="SimpleGoal"){
-                if(item._compleated){done="[X]";}
+                if(item.GetCompleated()){done="[X]";}
                 Console.WriteLine($"{i}. {done} {goalType}: {goalName} ({goalDesctiption}) {pointValue}");}
-            else{Console.WriteLine($"{i}.    {goalType}: {goalName} ({goalDesctiption}) {pointValue}");}
+            else{
+                int numberTimesCompleated=item.GetNumberCompleated();
+                Console.WriteLine($"{i}.    {goalType}: {goalName} ({goalDesctiption}) {pointValue} --compleated {numberTimesCompleated} times");}
             i++;
         }
 
@@ -128,7 +87,7 @@ public class Base{
                     AddList(load1);
                     break;
                 case "EternalGoal":
-                    CreateEternal load2=new(goal[0],goal[1],goal[2],int.Parse(goal[3]));
+                    CreateEternal load2=new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]));
                     AddList(load2);
                     break;
                 case "CheaklistGoal":
@@ -145,7 +104,7 @@ public class Base{
         List<int> index2=new();
         foreach (var item in _goals)
         {
-            if ((item._compleated!=true&&item._goalType=="SimpleGoal")||(item._numberTimes!=item._numberTimesCompleated&&item._goalType=="CheaklistGoal")||item._goalType=="EternalGoal"){
+            if ((item.GetCompleated()!=true&&item._goalType=="SimpleGoal")||(item.GetNumber()!=item.GetNumberCompleated()&&item._goalType=="CheaklistGoal")||item._goalType=="EternalGoal"){
             Console.WriteLine($"{i}. {item._goalName}");
             index2.Add(index3);
             i++; 
@@ -159,27 +118,27 @@ public class Base{
         switch (_goals[index])
         {
             case CreateSimple:
-            _goals[index]._compleated=true;
+            _goals[index].SetCompleated(true);
             _score+=_goals[index]._pointValue;
             Console.WriteLine($"addded {_goals[index]._pointValue} to the score");
             break;
             case CreateEternal:
             _score+=_goals[index]._pointValue;
+            _goals[index].SetNumberCompleated(1);
+            Console.WriteLine($"addded {_goals[index]._pointValue} to the score");
             break;
             case CreateCheaklist:
-            _goals[index]._numberTimesCompleated+=1;
-            if(_goals[index]._numberTimes==_goals[index]._numberTimesCompleated)
+            _goals[index].SetNumberCompleated(1);
+            if(_goals[index].GetNumber()==_goals[index].GetNumberCompleated())
             {
-             _score+= _goals[index]._pointValue+_goals[index]._bonus;
-             Console.WriteLine($"addded {_goals[index]._pointValue+_goals[index]._bonus} to the score");  
+             _score+= _goals[index]._pointValue+_goals[index].GetBonus();
+             Console.WriteLine($"addded {_goals[index]._pointValue+_goals[index].GetBonus()} to the score");  
             }else{
                 _score+=_goals[index]._pointValue;
                 Console.WriteLine($"addded {_goals[index]._pointValue} to the score");
             }
             break;
             
-            default:
-            break;
         } 
         
     }

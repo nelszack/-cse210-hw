@@ -1,7 +1,7 @@
 using System;
 
 public class CreateCheaklist:Base{
-   protected int _numberTimes,_numberTimesCompleated, _bonus;
+   private int _numberTimes,_numberTimesCompleated, _bonus;
     
    public CreateCheaklist(){
 

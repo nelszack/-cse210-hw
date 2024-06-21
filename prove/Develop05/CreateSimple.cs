@@ -1,7 +1,7 @@
 using System;
 
 public class CreateSimple:Base{
-      protected bool _compleated;
+    private bool _compleated;
     public CreateSimple(){
 
     }

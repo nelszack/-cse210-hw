@@ -20,17 +20,17 @@ class Program
                          case "1":
                               CreateSimple creates=new();
                               creates.CreateGoal();
-                              open.AddList(creates);
+                              open.AddActiveList(creates);
                               break;
                          case "2":
                               CreateEternal createe=new();
                               createe.CreateGoal();
-                              open.AddList(createe);
+                              open.AddActiveList(createe);
                               break;
                          case "3":
                               CreateCheaklist createc=new();
                               createc.CreateGoal();
-                              open.AddList(createc);
+                              open.AddActiveList(createc);
                               break;
                          default:
                               Console.WriteLine("not a valid choice");
@@ -44,7 +44,7 @@ class Program
                     break;
                case "3":
                     Save save=new();
-                    save.SaveGoals(open.GetList(),open.GetScore());
+                    save.SaveGoals(open.GetActiveList(),open.GetScore(),open.GetCompleatedList());
                     break;
                case "4":
                     Save load =new();
@@ -55,13 +55,17 @@ class Program
                     open.Record();
                     break;
                case "6":
+                    open.RemoveActive();
+                    break;
+               case "7":
                     Console.WriteLine("quit");
+                    break;
+               default:
+                    Console.WriteLine("not a valid choise");
                     break;
             }
           //   Console.Clear();
-        } while (Choise!="6");
-
-            
-        
+        } while (Choise!="7");
+    
     }
 }

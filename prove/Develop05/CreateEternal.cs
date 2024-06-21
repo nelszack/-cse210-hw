@@ -1,7 +1,7 @@
 using System;
 
 public class CreateEternal:Base{
-   int _timesCompleated;
+    private int _timesCompleated;
     public CreateEternal(){
 
    }

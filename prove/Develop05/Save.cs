@@ -1,8 +1,8 @@
 using System;
 
-public class Save:Base{
+public class Save{
 
-    public Save():base(){}
+    public Save(){}
     public void SaveGoals(List<Base> goals,int score,List<Base> cgoals){
         Console.Write("where do you want to save the goals ");
         string FileName=Console.ReadLine();
@@ -28,7 +28,8 @@ public class Save:Base{
             output.WriteLine($"{goalType},{goalName},{goalDesctiption},{pointValue},{compleated}");
             }
             else{
-                output.WriteLine($"{goalType},{goalName},{goalDesctiption},{pointValue}");
+                int numberTimesCompleated=goal.GetNumberCompleated();
+                output.WriteLine($"{goalType},{goalName},{goalDesctiption},{pointValue},{numberTimesCompleated}");
             }
         }
             foreach (Base goal in cgoals){

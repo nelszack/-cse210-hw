@@ -10,12 +10,13 @@ class Program
           Base open=new();
         do
         {
-            Choise= open.Menu();
+           Console.WriteLine($"Score: {open.GetScore()}\n"); 
+            Choise= open.Menu("1. Create new goal\n2. List goals\n3. Save goals\n4. Load goals\n5. Record\n6. Remove active goal \n7. Quit\nSelect a choice: ");
             switch (Choise)
             {   case "1":
                     
                     do{
-                    Choise=open.CreateMenu();
+                    Choise=open.Menu("1. Simple Goal\n2. Eternal Goal\n3. Cheaklist Goal\nWhat do you choose: ");
                     switch (Choise){
                          case "1":
                               CreateSimple creates=new();

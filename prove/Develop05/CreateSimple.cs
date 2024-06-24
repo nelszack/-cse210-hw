@@ -21,6 +21,7 @@ public class CreateSimple:Base{
         _pointValue=int.Parse(Console.ReadLine()); 
         _compleated=false;   
     }
+    
     public override bool GetCompleated(){return _compleated;}
     public override void SetCompleated(bool value){_compleated=value;}
 }

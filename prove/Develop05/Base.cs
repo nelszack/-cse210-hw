@@ -4,15 +4,18 @@ using System.Diagnostics;
 
 public class Base{
 
-    private int _score=0; 
-    protected string _goalType, _goalName,  _goalDesctiption;
-    protected int _pointValue;
-    private List<Base> _goalsActive =new();
-    private List<Base> _goalsCompleated =new();
+    
 
     public Base(){
         
     }
+
+    protected List<Base> _goalsActive =new();
+    protected List<Base> _goalsCompleated =new();
+    protected int _score=0; 
+    protected string _goalType, _goalName,  _goalDesctiption;
+    protected int _pointValue;
+
     public Base(string GoalType, string GoalName, string GoalDesctription, int PointValue){
         _goalType=GoalType;
         _goalName=GoalName;
@@ -20,39 +23,11 @@ public class Base{
         _pointValue=PointValue;
     }
 
-    public string GetName(){return _goalName;}
-    public string GetDescription(){return _goalDesctiption;}
-    public string GetGoalType(){return _goalType;}
-    public int GetPoint(){return _pointValue;}
-    public virtual bool GetCompleated(){return true;}
-    public virtual int GetNumber(){return 1;}
-    public virtual int GetNumberCompleated(){return 1;}
-    public virtual void SetNumberCompleated(int numb){}
-    public virtual void SetCompleated(bool value){}
-    public virtual int GetBonus(){return 1;}
-    
-    public void AddActiveList(Base some){_goalsActive.Add(some);}
-   
-    public List<Base> GetActiveList(){return _goalsActive;}
-    public void AddCompleatedList(Base some){_goalsCompleated.Add(some);}
-   
-    public List<Base> GetCompleatedList(){return _goalsCompleated;}
-    public int GetScore(){return _score;} 
-
-    public string Menu(){
-    Console.WriteLine($"Score: {_score}\n");    
-    Console.Write("1. Create new goal\n2. List goals\n3. Save goals\n4. Load goals\n5. Record\n6. Remove active goal \n7. Quit\nSelect a choice: ");
+  public string Menu(string menu){   
+    Console.Write(menu);
     string Choice=Console.ReadLine();
     return Choice;
     }
-
-     public string CreateMenu()
-    {
-        Console.Write("1. Simple Goal\n2. Eternal Goal\n3. Cheaklist Goal\nWhat do you choose: ");
-        string choise=Console.ReadLine();
-        return choise;
-    }
-    public virtual void CreateGoal(){}
     public void ListGoals(){
         int i=1;
         if( _goalsActive.Count!=0){
@@ -72,10 +47,10 @@ public class Base{
                 Console.WriteLine($"{i}. {done} {goalType}: {goalName} ({goalDesctiption}) {pointValue} --compleated {numberTimesCompleated}/{numberTimes})"); 
                 } else if(goalType=="SimpleGoal"){
                     if(item.GetCompleated()){done="[X]";}
-                    Console.WriteLine($"{i}. {done} {goalType}: {goalName} ({goalDesctiption}) {pointValue}");}
+                Console.WriteLine($"{i}. {done} {goalType}: {goalName} ({goalDesctiption}) {pointValue}");}
                 else{
                 int numberTimesCompleated=item.GetNumberCompleated();
-                Console.WriteLine($"{i}.    {goalType}: {goalName} ({goalDesctiption}) {pointValue} --compleated {numberTimesCompleated} times");}
+                Console.WriteLine($"{i}.     {goalType}: {goalName} ({goalDesctiption}) {pointValue} --compleated {numberTimesCompleated} times");}
                 i++;}
         }else{Console.WriteLine("No active goals\n");}
         if (_goalsCompleated.Count()!=0){
@@ -105,7 +80,56 @@ public class Base{
         }else{Console.WriteLine("No compleated goals\n");}
 
     }
-    public void FromLoad(string[] strings){
+    public void Record(){
+        if (_goalsActive.Count()!=0){
+            int i =1;
+            int index3=0;
+            List<int> index2=new();
+            foreach (var item in _goalsActive)
+            {
+                if ((item.GetCompleated()!=true&&item._goalType=="SimpleGoal")||(item.GetNumber()!=item.GetNumberCompleated()&&item._goalType=="CheaklistGoal")||item._goalType=="EternalGoal"){
+                Console.WriteLine($"{i}. {item._goalName}");
+                index2.Add(index3);
+                i++; 
+                }
+                index3++;
+                
+            }
+            Console.Write("Which one do you want to record ");
+            string choise=Console.ReadLine();
+            int index=index2[int.Parse(choise)-1];
+            switch (_goalsActive[index])
+            {
+                case CreateSimple:
+                    _goalsActive[index].SetCompleated(true);
+                    _score+=_goalsActive[index]._pointValue;
+                    AddCompleatedList(_goalsActive[index]);
+                    Console.WriteLine($"addded {_goalsActive[index]._pointValue} to the score");
+                    _goalsActive.RemoveAt(index);
+                    break;
+                case CreateEternal:
+                    _score+=_goalsActive[index]._pointValue;
+                    _goalsActive[index].SetNumberCompleated(1);
+                    Console.WriteLine($"addded {_goalsActive[index]._pointValue} to the score");
+                    break;
+                case CreateCheaklist:
+                    _goalsActive[index].SetNumberCompleated(1);
+                    if(_goalsActive[index].GetNumber()==_goalsActive[index].GetNumberCompleated())
+                    {
+                    _score+= _goalsActive[index]._pointValue+_goalsActive[index].GetBonus();
+                    Console.WriteLine($"addded {_goalsActive[index]._pointValue+_goalsActive[index].GetBonus()} to the score");  
+                    AddCompleatedList(_goalsActive[index]);
+                    _goalsActive.RemoveAt(index);
+                    }else{
+                        _score+=_goalsActive[index]._pointValue;
+                        Console.WriteLine($"addded {_goalsActive[index]._pointValue} to the score");
+                    }
+                    break;
+            }
+                
+        } else{Console.WriteLine("No goals to record");}
+    }
+        public void FromLoad(string[] strings){
         _score=int.Parse(strings[0]);
         for (int i=1;i<strings.Count();i++){
             string[] goal=strings[i].Split(',');
@@ -135,53 +159,7 @@ public class Base{
         }
 
     }
-    public void Record(){
-        int i =1;
-        int index3=0;
-        List<int> index2=new();
-        foreach (var item in _goalsActive)
-        {
-            if ((item.GetCompleated()!=true&&item._goalType=="SimpleGoal")||(item.GetNumber()!=item.GetNumberCompleated()&&item._goalType=="CheaklistGoal")||item._goalType=="EternalGoal"){
-            Console.WriteLine($"{i}. {item._goalName}");
-            index2.Add(index3);
-            i++; 
-            }
-            index3++;
-               
-        }
-        Console.Write("Which one do you want to record ");
-        string choise=Console.ReadLine();
-        int index=index2[int.Parse(choise)-1];
-        switch (_goalsActive[index])
-        {
-            case CreateSimple:
-                _goalsActive[index].SetCompleated(true);
-                _score+=_goalsActive[index]._pointValue;
-                AddCompleatedList(_goalsActive[index]);
-                Console.WriteLine($"addded {_goalsActive[index]._pointValue} to the score");
-                _goalsActive.RemoveAt(index);
-                break;
-            case CreateEternal:
-                _score+=_goalsActive[index]._pointValue;
-                _goalsActive[index].SetNumberCompleated(1);
-                Console.WriteLine($"addded {_goalsActive[index]._pointValue} to the score");
-                break;
-            case CreateCheaklist:
-                _goalsActive[index].SetNumberCompleated(1);
-                if(_goalsActive[index].GetNumber()==_goalsActive[index].GetNumberCompleated())
-                {
-                _score+= _goalsActive[index]._pointValue+_goalsActive[index].GetBonus();
-                Console.WriteLine($"addded {_goalsActive[index]._pointValue+_goalsActive[index].GetBonus()} to the score");  
-                AddCompleatedList(_goalsActive[index]);
-                _goalsActive.RemoveAt(index);
-                }else{
-                    _score+=_goalsActive[index]._pointValue;
-                    Console.WriteLine($"addded {_goalsActive[index]._pointValue} to the score");
-                }
-                break;
-            
-        } 
-    }
+
     public void RemoveActive(){
         if (_goalsActive.Count()!=0){
             int i =1;
@@ -213,4 +191,24 @@ public class Base{
         }
         else{Console.WriteLine("No goal to remove");}
     }
+    public string GetName(){return _goalName;}
+    public string GetDescription(){return _goalDesctiption;}
+    public string GetGoalType(){return _goalType;}
+    public int GetPoint(){return _pointValue;}
+    public void AddActiveList(Base some){_goalsActive.Add(some);}
+   
+    public List<Base> GetActiveList(){return _goalsActive;}
+    public void AddCompleatedList(Base some){_goalsCompleated.Add(some);}
+   
+    public List<Base> GetCompleatedList(){return _goalsCompleated;}
+    public int GetScore(){return _score;} 
+
+    public virtual void CreateGoal(){}
+    public virtual bool GetCompleated(){return true;}
+    public virtual int GetNumber(){return 1;}
+    public virtual int GetNumberCompleated(){return 1;}
+    public virtual void SetNumberCompleated(int numb){}
+    public virtual void SetCompleated(bool value){}
+    public virtual int GetBonus(){return 1;}
+    
 }

@@ -3,18 +3,14 @@ using System.Diagnostics;
 
 
 public class Base{
-
-    
-
+    private List<Base> _goalsActive =new();
+    private List<Base> _goalsCompleated =new();
+    private int _score=0; 
+    protected string _goalType, _goalName,  _goalDesctiption;
+    protected int _pointValue;
     public Base(){
         
     }
-
-    protected List<Base> _goalsActive =new();
-    protected List<Base> _goalsCompleated =new();
-    protected int _score=0; 
-    protected string _goalType, _goalName,  _goalDesctiption;
-    protected int _pointValue;
 
     public Base(string GoalType, string GoalName, string GoalDesctription, int PointValue){
         _goalType=GoalType;
@@ -23,10 +19,10 @@ public class Base{
         _pointValue=PointValue;
     }
 
-  public string Menu(string menu){   
-    Console.Write(menu);
-    string Choice=Console.ReadLine();
-    return Choice;
+    public string Menu(string menu){   
+        Console.Write(menu);
+        string Choice=Console.ReadLine();
+        return Choice;
     }
     public void ListGoals(){
         int i=1;
@@ -130,35 +126,39 @@ public class Base{
         } else{Console.WriteLine("No goals to record");}
     }
         public void FromLoad(string[] strings){
-        _score=int.Parse(strings[0]);
-        for (int i=1;i<strings.Count();i++){
-            string[] goal=strings[i].Split(',');
-            switch (goal[0])
-            {
-                case "SimpleGoal":
-                    CreateSimple load1=new(goal[0],goal[1],goal[2],int.Parse(goal[3]),bool.Parse(goal[4]));
-                    if (bool.Parse(goal[4])){
-                        AddCompleatedList(load1);
-                    }
-                    else{
-                    AddActiveList(load1);
-                    }
-                    break;
-                case "EternalGoal":
-                    CreateEternal load2=new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]));
-                    AddActiveList(load2);
-                    break;
-                case "CheaklistGoal":
-                    CreateCheaklist load3= new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]),int.Parse(goal[5]),int.Parse(goal[6]));
-                    if (int.Parse(goal[5])==int.Parse(goal[6])){
-                        AddCompleatedList(load3);
-                    }
-                    else{AddActiveList(load3);}
-                    break;
+        if(strings.Count()>0){    
+            _score+=int.Parse(strings[0]);
+            for (int i=1;i<strings.Count();i++){
+                string[] goal=strings[i].Split(',');
+                switch (goal[0])
+                {
+                    case "SimpleGoal":
+                        CreateSimple load1=new(goal[0],goal[1],goal[2],int.Parse(goal[3]),bool.Parse(goal[4]));
+                        if (bool.Parse(goal[4])){
+                            AddCompleatedList(load1);
+                        }
+                        else{
+                        AddActiveList(load1);
+                        }
+                        break;
+                    case "EternalGoal":
+                        CreateEternal load2=new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]));
+                        AddActiveList(load2);
+                        break;
+                    case "CheaklistGoal":
+                        CreateCheaklist load3= new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]),int.Parse(goal[5]),int.Parse(goal[6]));
+                        if (int.Parse(goal[5])==int.Parse(goal[6])){
+                            AddCompleatedList(load3);
+                        }
+                        else{AddActiveList(load3);}
+                        break;
+                }
             }
+        } else
+        {
+            Console.WriteLine("file empty");
         }
-
-    }
+        }
 
     public void RemoveActive(){
         if (_goalsActive.Count()!=0){
@@ -178,11 +178,12 @@ public class Base{
             Console.Write("Which one do you want to remove ");
             string choise=Console.ReadLine();
             int index=index2[int.Parse(choise)-1];
-            Console.WriteLine("Are you sure this cant be undone and any awarded points will be removed");
+            Console.WriteLine("Are you sure this cant be undone and any awarded points will be removed (yes/no)");
             string answer= Console.ReadLine();
-            if (answer=="yes"||answer=="y"){    
+            if (answer.ToLower()=="yes"||answer.ToLower()=="y"){    
                 if( _goalsActive[index]._goalType=="EternalGoal"||_goalsActive[index]._goalType=="CheaklistGoal"){
                 _score-=_goalsActive[index]._pointValue*_goalsActive[index].GetNumberCompleated();
+                Console.WriteLine($"{_goalsActive[index]._pointValue*_goalsActive[index].GetNumberCompleated()} points removed from the goal");
                 }
                 _goalsActive.RemoveAt(index);
                 Console.WriteLine("goal removed");

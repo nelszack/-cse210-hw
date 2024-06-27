@@ -6,18 +6,19 @@ class Program
 
     static void Main(string[] args)
     {
-          string Choise;
+          string Choice;
           Base open=new();
         do
         {
-           Console.WriteLine($"Score: {open.GetScore()}\n"); 
-            Choise= open.Menu("1. Create new goal\n2. List goals\n3. Save goals\n4. Load goals\n5. Record\n6. Remove active goal \n7. Quit\nSelect a choice: ");
-            switch (Choise)
+          Console.WriteLine($"Score: {open.GetScore()}\n"); 
+          Choice= open.Menu("1. Create new goal\n2. List goals\n3. Save goals\n4. Load goals\n5. Record\n6. Remove active goal \n7. Quit\nSelect a choice: ");
+          Console.Clear();
+            switch (Choice)
             {   case "1":
                     
                     do{
-                    Choise=open.Menu("1. Simple Goal\n2. Eternal Goal\n3. Cheaklist Goal\nWhat do you choose: ");
-                    switch (Choise){
+                    Choice=open.Menu("1. Simple Goal\n2. Eternal Goal\n3. Cheaklist Goal\nWhat do you choose: ");
+                    switch (Choice){
                          case "1":
                               CreateSimple creates=new();
                               creates.CreateGoal();
@@ -37,7 +38,7 @@ class Program
                               Console.WriteLine("not a valid choice");
                               break;
                     }
-                    } while(!new [] {"1","2","3"}.Contains(Choise));
+                    } while(!new [] {"1","2","3"}.Contains(Choice));
                     
                     break;
                case "2":
@@ -62,11 +63,10 @@ class Program
                     Console.WriteLine("quit");
                     break;
                default:
-                    Console.WriteLine("not a valid choise");
+                    Console.WriteLine("not a valid choice");
                     break;
             }
-          //   Console.Clear();
-        } while (Choise!="7");
+        } while (Choice!="7");
     
     }
 }

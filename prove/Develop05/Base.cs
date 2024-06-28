@@ -35,7 +35,7 @@ public class Base{
                 string goalName=item._goalName;
                 string goalDesctiption=item._goalDesctiption;
                 int pointValue=item._pointValue;
-                if(goalType=="CheaklistGoal"){
+                if(goalType=="ChecklistGoal"){
                 int numberTimes=item.GetNumber();
                 int numberTimesCompleated=item.GetNumberCompleated();
                 int bonus=item.GetBonus();
@@ -59,7 +59,7 @@ public class Base{
                 string goalName=item._goalName;
                 string goalDesctiption=item._goalDesctiption;
                 int pointValue=item._pointValue;
-                if(goalType=="CheaklistGoal"){
+                if(goalType=="ChecklistGoal"){
                     int numberTimes=item.GetNumber();
                     int numberTimesCompleated=item.GetNumberCompleated();
                     int bonus=item.GetBonus();
@@ -83,7 +83,7 @@ public class Base{
             List<int> index2=new();
             foreach (var item in _goalsActive)
             {
-                if ((item.GetCompleated()!=true&&item._goalType=="SimpleGoal")||(item.GetNumber()!=item.GetNumberCompleated()&&item._goalType=="CheaklistGoal")||item._goalType=="EternalGoal"){
+                if ((item.GetCompleated()!=true&&item._goalType=="SimpleGoal")||(item.GetNumber()!=item.GetNumberCompleated()&&item._goalType=="ChecklistGoal")||item._goalType=="EternalGoal"){
                 Console.WriteLine($"{i}. {item._goalName}");
                 index2.Add(index3);
                 i++; 
@@ -108,7 +108,7 @@ public class Base{
                     _goalsActive[index].SetNumberCompleated(1);
                     Console.WriteLine($"addded {_goalsActive[index]._pointValue} to the score");
                     break;
-                case CreateCheaklist:
+                case CreateChecklist:
                     _goalsActive[index].SetNumberCompleated(1);
                     if(_goalsActive[index].GetNumber()==_goalsActive[index].GetNumberCompleated())
                     {
@@ -145,8 +145,8 @@ public class Base{
                         CreateEternal load2=new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]));
                         AddActiveList(load2);
                         break;
-                    case "CheaklistGoal":
-                        CreateCheaklist load3= new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]),int.Parse(goal[5]),int.Parse(goal[6]));
+                    case "ChecklistGoal":
+                        CreateChecklist load3= new(goal[0],goal[1],goal[2],int.Parse(goal[3]),int.Parse(goal[4]),int.Parse(goal[5]),int.Parse(goal[6]));
                         if (int.Parse(goal[5])==int.Parse(goal[6])){
                             AddCompleatedList(load3);
                         }
@@ -167,7 +167,7 @@ public class Base{
             List<int> index2=new();
             foreach (var item in _goalsActive)
             {
-                if ((item.GetCompleated()!=true&&item._goalType=="SimpleGoal")||(item.GetNumber()!=item.GetNumberCompleated()&&item._goalType=="CheaklistGoal")||item._goalType=="EternalGoal"){
+                if ((item.GetCompleated()!=true&&item._goalType=="SimpleGoal")||(item.GetNumber()!=item.GetNumberCompleated()&&item._goalType=="ChecklistGoal")||item._goalType=="EternalGoal"){
                 Console.WriteLine($"{i}. {item._goalName}");
                 index2.Add(index3);
                 i++; 
@@ -181,7 +181,7 @@ public class Base{
             Console.WriteLine("Are you sure this cant be undone and any awarded points will be removed (yes/no)");
             string answer= Console.ReadLine();
             if (answer.ToLower()=="yes"||answer.ToLower()=="y"){    
-                if( _goalsActive[index]._goalType=="EternalGoal"||_goalsActive[index]._goalType=="CheaklistGoal"){
+                if( _goalsActive[index]._goalType=="EternalGoal"||_goalsActive[index]._goalType=="ChecklistGoal"){
                 _score-=_goalsActive[index]._pointValue*_goalsActive[index].GetNumberCompleated();
                 Console.WriteLine($"{_goalsActive[index]._pointValue*_goalsActive[index].GetNumberCompleated()} points removed from the goal");
                 }

@@ -18,7 +18,7 @@ public class Save{
             string goalName=goal.GetName();
             string goalDesctiption=goal.GetDescription();
             int pointValue=goal.GetPoint();
-            if(goalType=="CheaklistGoal"){
+            if(goalType=="ChecklistGoal"){
                 int numberTimes=goal.GetNumber();
                 int numberTimesCompleated=goal.GetNumberCompleated();
                 int bonus=goal.GetBonus();
@@ -40,7 +40,7 @@ public class Save{
                     string goalName=goal.GetName();
                     string goalDesctiption=goal.GetDescription();
                     int pointValue=goal.GetPoint();
-                    if(goalType=="CheaklistGoal"){
+                    if(goalType=="ChecklistGoal"){
                     int numberTimes=goal.GetNumber();
                     int numberTimesCompleated=goal.GetNumberCompleated();
                     int bonus=goal.GetBonus();

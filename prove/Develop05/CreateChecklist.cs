@@ -1,18 +1,18 @@
 using System;
 
-public class CreateCheaklist:Base{
+public class CreateChecklist:Base{
    private int _numberTimes,_numberTimesCompleated, _bonus;
     
-   public CreateCheaklist(){
+   public CreateChecklist(){
 
    }
-   public CreateCheaklist(string GoalType, string GoalName, string GoalDesctription, int PointValue,int Bonus,int NumberTimes,int TimesCompleated ):base(GoalType,GoalName,GoalDesctription,PointValue){
+   public CreateChecklist(string GoalType, string GoalName, string GoalDesctription, int PointValue,int Bonus,int NumberTimes,int TimesCompleated ):base(GoalType,GoalName,GoalDesctription,PointValue){
       _numberTimes=NumberTimes;
       _numberTimesCompleated=TimesCompleated;
       _bonus=Bonus;
    }
    public override void CreateGoal(){
-         _goalType="CheaklistGoal";
+         _goalType="ChecklistGoal";
         Console.Write("What is the goal: ");
         _goalName=Console.ReadLine();
         Console.Write("Description of goal: ");

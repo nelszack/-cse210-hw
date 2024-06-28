@@ -17,7 +17,7 @@ class Program
             {   case "1":
                     
                     do{
-                    Choice=open.Menu("1. Simple Goal\n2. Eternal Goal\n3. Cheaklist Goal\nWhat do you choose: ");
+                    Choice=open.Menu("1. Simple Goal\n2. Eternal Goal\n3. Checklist Goal\nWhat do you choose: ");
                     switch (Choice){
                          case "1":
                               CreateSimple creates=new();
@@ -30,7 +30,7 @@ class Program
                               open.AddActiveList(createe);
                               break;
                          case "3":
-                              CreateCheaklist createc=new();
+                              CreateChecklist createc=new();
                               createc.CreateGoal();
                               open.AddActiveList(createc);
                               break;

@@ -12,7 +12,7 @@ class Program
         {
           Console.WriteLine($"Score: {open.GetScore()}\n"); 
           Choice= open.Menu("1. Create new goal\n2. List goals\n3. Save goals\n4. Load goals\n5. Record\n6. Remove active goal \n7. Quit\nSelect a choice: ");
-          Console.Clear();
+          System.Diagnostics.Process.Start("powershell.exe","cls");
             switch (Choice)
             {   case "1":
                     

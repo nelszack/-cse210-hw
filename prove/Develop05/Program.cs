@@ -2,8 +2,7 @@ using System;
 
 class Program
 {   
-    
-
+//     Zack Nelson 6/28/24 made it so that there is an option to remove avtive goal from list and made it so that when displayng goals to record/ remove that it dosnt show goals that are compleated 
     static void Main(string[] args)
     {
           string Choice;

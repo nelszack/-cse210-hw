@@ -14,21 +14,21 @@ class Program
         comment1.StoreComment("Sue", "Don't watch this");
         video1.SetComments(comment1);
         Comment comment2 = new();
-        comment2.StoreComment("John", "this is a test");
-        comment2.StoreComment("Steve", "this is a test2");
-        comment2.StoreComment("Emma", "this is a test3");
+        comment2.StoreComment("John", "good video");
+        comment2.StoreComment("Steve", "this video is ok");
+        comment2.StoreComment("Emma", "cool");
         video2.SetComments(comment2);
         Comment comment3 = new();
-        comment3.StoreComment("Joseph", "this is a test");
-        comment3.StoreComment("Caleb", "this is a test2");
-        comment3.StoreComment("Kyle", "this is a test3");
+        comment3.StoreComment("Joseph", "i didn't watch");
+        comment3.StoreComment("Caleb", "cool");
+        comment3.StoreComment("Kyle", "this is fun");
         video3.SetComments(comment3);
         videos.Add(video1);
         videos.Add(video2);
         videos.Add(video3);
         foreach (var item in videos)
         {
-            Console.WriteLine($"title: {item.GetTitle()} - chanal name: {item.GetAuthor()} time {item.GetTime()}");
+            Console.WriteLine($"title: '{item.GetTitle()}' - chanal name: '{item.GetAuthor()}', time {item.GetTime()}");
             Dictionary<string, string> pairs = item.GetComments().GetDict();
             Console.WriteLine("Comments:");
             foreach (var item2 in pairs)

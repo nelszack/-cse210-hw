@@ -4,6 +4,13 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello Foundation4 World!");
+        Activity activity=new();
+        Running running1 = new("Nov 03 2022",30,3.0);
+        Biking biking1= new("Nov 03 2022",30,6.0);
+        Swimming swimming1 =new("Nov 03 2022",30,3000.0/31);
+        activity.AddList(running1);
+        activity.AddList(biking1);
+        activity.AddList(swimming1);
+        activity.GetSummary();
     }
 }

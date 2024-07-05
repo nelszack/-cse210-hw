@@ -19,10 +19,12 @@ public class Event {
     }
 
     public void DisplayStandard() {
+        Console.WriteLine("standard detail:");
         Console.WriteLine($"title:{_eventTitle}\ndescrition:{_description}\ndate:{_date}\ntime:{_time}\naddress:{_address}");
     }
 
     public void DisplayShort() {
+        Console.WriteLine("short detail:");
         Console.WriteLine($"type:{_type}\ntitle:{_eventTitle}\ndate:{_date}");
     }
 }

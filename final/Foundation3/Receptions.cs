@@ -7,6 +7,7 @@ public class Receptions:Event {
         _rsvp=RSVP;
     }
     public void DisplayFull() {
+        Console.WriteLine("full detail:");
         Console.WriteLine($"title:{_eventTitle}\ndesctiption:{_description}\ndate:{_date}\ntime:{_time}\naddress:{_address}\nrsvp at:{_rsvp}");
     }
 }

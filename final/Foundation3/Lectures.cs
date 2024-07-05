@@ -9,6 +9,7 @@ public class Lectures:Event {
     }
 
     public void DisplayFull() {
+        Console.WriteLine("full detail:");
         Console.WriteLine($"title: {_eventTitle}\ndescription: {_description}\ndate:{_date}\ntime:{_time}\naddress:{_address}\nspeaker:{_speaker}\ncapacity:{_capacity}");
     }
     

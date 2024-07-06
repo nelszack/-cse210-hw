@@ -28,13 +28,7 @@ class Program
         videos.Add(video3);
         foreach (var item in videos)
         {
-            Console.WriteLine($"title: '{item.GetTitle()}' - chanal name: '{item.GetAuthor()}', time {item.GetTime()}");
-            Dictionary<string, string> pairs = item.GetComments().GetDict();
-            Console.WriteLine("Comments:");
-            foreach (var item2 in pairs)
-            {
-                Console.WriteLine($"    {item2.Key} - {item2.Value}");
-            }
+            item.DisplayInfo();
         }
     }
 }

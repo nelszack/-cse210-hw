@@ -34,4 +34,13 @@ public class Video
     {
         _comments = comment;
     }
+    public void DisplayInfo(){
+        Console.WriteLine($"title: '{_title}' - chanal name: '{_author}', time {_time}");
+        Dictionary<string, string> pairs = _comments.GetDict();
+        Console.WriteLine("Comments:");
+        foreach (var item2 in pairs)
+        {
+            Console.WriteLine($"    {item2.Key} - {item2.Value}");
+        }
+    }
 }

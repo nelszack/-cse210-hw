@@ -5,18 +5,18 @@ public class Address {
     private string _city;
     private string _state;
     private string _country;
-    private bool _native;
+    private bool _us;
 
-    public Address(string Street,string City,string State,string Country,bool Native=true){
+    public Address(string Street,string City,string State,string Country,bool US=true){
         _streetAdress=Street;
         _city=City;
         _state=State;
         _country=Country;
-        _native=Native;
+        _us=US;
     }
 
-    public bool GetNative() {
-        return _native;
+    public bool GetUS() {
+        return _us;
     }
     public string GetCountry() {
         return _country;

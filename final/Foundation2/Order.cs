@@ -18,7 +18,7 @@ public class Order {
             Console.WriteLine($"{item.GetProductID()}: {item.GetProductName()} (${item.GetPrice()}) X {item.GetQuantity()} = ${item.TotalCost()}");
             
         }
-        if (_name.GetAddress().GetNative()){
+        if (_name.GetAddress().GetUS()){
             Shipping=5;
         }
         else {

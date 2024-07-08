@@ -1,27 +1,34 @@
 using System;
 
-public class Customer {
+public class Customer
+{
     private string _name;
     private Address _address;
 
-    public Customer() {
+    public Customer()
+    {
 
     }
-    public bool IsUS() {
+    public bool IsUS()
+    {
         return _address.GetUS();
     }
 
-    public Address GetAddress() {
+    public Address GetAddress()
+    {
         return _address;
     }
-    public string GetName() {
+    public string GetName()
+    {
         return _name;
     }
-    public void SetAddress(Address address) {
-         _address=address;
+    public void SetAddress(Address address)
+    {
+        _address = address;
     }
-    public void SetName(string name) {
-        _name=name;
+    public void SetName(string name)
+    {
+        _name = name;
     }
 
 }

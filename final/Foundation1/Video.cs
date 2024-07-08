@@ -34,7 +34,8 @@ public class Video
     {
         _comments = comment;
     }
-    public void DisplayInfo(){
+    public void DisplayInfo()
+    {
         Console.WriteLine($"title: '{_title}' - chanal name: '{_author}', time {_time}");
         Dictionary<string, string> pairs = _comments.GetDict();
         Console.WriteLine("Comments:");

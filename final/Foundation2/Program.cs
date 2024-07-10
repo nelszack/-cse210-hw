@@ -5,7 +5,7 @@ class Program
     static void Main(string[] args)
     {
         Order order1 = new();
-        Address address1 = new("525 templeveiw dr", "rexburg", "Idaho", "USA");
+        Address address1 = new("525 Templeveiw Dr.", "Rexburg", "Idaho", "USA");
         Customer customer1 = new();
         Product product1 = new("Apple", "A101", 1.05, 5);
         Product product2 = new("Couch", "C101", 99.99, 2);
@@ -18,7 +18,7 @@ class Program
         order1.SetCostomer(customer1);
 
         Order order2 = new();
-        Address address2 = new("100 street dr", "city city", "state2", "country50", false);
+        Address address2 = new("100 Street Dr.", "Paris", "France", "France", false);
         Customer customer2 = new();
         Product product4 = new("fruit boundle", "F101", 5.05, 5);
         Product product5 = new("Couch", "C101", 199.99, 2);

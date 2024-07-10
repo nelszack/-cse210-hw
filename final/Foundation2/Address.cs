@@ -39,6 +39,6 @@ public class Address
     }
     public string MakeString()
     {
-        return $"{_streetAdress}\n {_city}, {_state}, {_country}";
+        return $"{_streetAdress}\n{_city}, {_state}, {_country}";
     }
 }

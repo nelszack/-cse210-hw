@@ -10,6 +10,7 @@ class Program
     }
     static void Foundation1()
     {
+
         List<Video> videos = new();
         Video video1 = new("Exploring the Cosmos: A Journey Through Space and Time", "CosmicExplorer", 100);
         Video video2 = new("Culinary Delights: Discovering World Cuisines", "CulinaryVoyager", 200);
@@ -70,21 +71,21 @@ class Program
     }
     static void Foundation3()
     {
-        Lectures lecture = new("Become better", "learn how to become better", "sept 30 2030", "12:30 pm", "teton event center", "john smith", 200);
+        Lectures lecture = new("Demystifying Machine Learning", "Dive into the world of Machine Learning with this interactive workshop", "sept 30 2030", "12:30 pm", "teton event center", "john smith", 200);
         lecture.DisplayShort();
         Console.WriteLine();
         lecture.DisplayStandard();
         Console.WriteLine();
         lecture.DisplayFull();
         Console.WriteLine();
-        Receptions reception = new("Become better2", "learn how to become better", "sept 30 2030", "12:30 pm", "teton event center", "rsvp@event.com");
+        Receptions reception = new("Demystifying Machine Learning", "Dive into the world of Machine Learning with this interactive workshop", "sept 30 2030", "12:30 pm", "teton event center", "rsvp@event.com");
         reception.DisplayShort();
         Console.WriteLine();
         reception.DisplayStandard();
         Console.WriteLine();
         reception.DisplayFull();
         Console.WriteLine();
-        Outdoor outdoor = new("Become better3", "learn how to become better", "sept 30 2030", "12:30 pm", "teton event center", "cloudy with a chance of meatballs");
+        Outdoor outdoor = new("Demystifying Machine Learning", "Dive into the world of Machine Learning with this interactive workshop", "sept 30 2030", "12:30 pm", "teton event center", "cloudy with a chance of meatballs");
         outdoor.DisplayShort();
         Console.WriteLine();
         outdoor.DisplayStandard();
@@ -113,15 +114,19 @@ class Program
             switch (Choise)
             {
                 case "1":
+                    Console.Clear();
                     Foundation1();
                     break;
                 case "2":
+                    Console.Clear();
                     Foundation2();
                     break;
                 case "3":
+                    Console.Clear();
                     Foundation3();
                     break;
                 case "4":
+                    Console.Clear();
                     Foundation4();
                     break;
 
